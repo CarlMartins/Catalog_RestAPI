@@ -46,5 +46,11 @@ namespace NET5_RestAPI.Repositories
     {
       Items.Add(item);
     }
+
+    public void UpdateItem(Item item)
+    {
+      var index = Items.FindIndex(existingItem => existingItem.Id == item.Id);
+      Items[index] = item;
+    }
   }
 }
