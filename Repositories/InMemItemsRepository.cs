@@ -41,5 +41,10 @@ namespace NET5_RestAPI.Repositories
     {
       return Items.Where(item => item.Id == id).SingleOrDefault();
     }
+
+    public void CreateItem(Item item)
+    {
+      Items.Add(item);
+    }
   }
 }

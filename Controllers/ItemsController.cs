@@ -31,5 +31,21 @@ namespace NET5_RestAPI.Controllers
       var item = _repository.GetItem(id);
       return item.AsDto();
     }
+
+    [HttpPost]
+    public ActionResult<ItemDto> CreateItem(CreateItemDto itemDto)
+    {
+      Item item = new()
+      {
+        Id = Guid.NewGuid(),
+        Name = itemDto.Name,
+        Price = itemDto.Price,
+        CreatedDate = DateTimeOffset.UtcNow
+      };
+
+      _repository.CreateItem(item);
+
+      return CreatedAtAction(nameof(GetItem), new { item.Id }, item.AsDto());
+    }
   }
 }
