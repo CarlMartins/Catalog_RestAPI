@@ -5,7 +5,7 @@ using NET5_RestAPI.Entities;
 
 namespace NET5_RestAPI.Repositories
 {
-  public class InMemItemsRepository
+  public class InMemItemsRepository : IItemsRepository
   {
     private readonly List<Item> Items = new()
     {

@@ -8,11 +8,11 @@ namespace NET5_RestAPI.Controllers
 {
   public class ItemsController : BaseApiController
   {
-    private readonly InMemItemsRepository _repository;
+    private readonly IItemsRepository _repository;
 
-    public ItemsController()
+    public ItemsController(IItemsRepository repository)
     {
-      _repository = new InMemItemsRepository();
+      _repository = repository;
     }
 
     [HttpGet]
