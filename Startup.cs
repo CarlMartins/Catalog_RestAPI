@@ -11,7 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver;
 using NET5_RestAPI.Repositories;
+using NET5_RestAPI.Settings;
 
 namespace NET5_RestAPI
 {
@@ -27,7 +32,16 @@ namespace NET5_RestAPI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddSingleton<IItemsRepository, InMemItemsRepository>();
+      BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+      BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+
+      services.AddSingleton<IMongoClient>(serviceProvider =>
+      {
+        var settings = Configuration.GetSection(nameof(MongoDbSettings))
+          .Get<MongoDbSettings>();
+        return new MongoClient(settings.ConnectionString);
+      });
+      services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
 
       services.AddControllers();
       services.AddSwaggerGen(c =>
