@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NET5_RestAPI.DTOs;
 using NET5_RestAPI.Entities;
 using NET5_RestAPI.Extensions;
@@ -13,10 +14,12 @@ namespace NET5_RestAPI.Controllers
   public class ItemsController : BaseApiController
   {
     private readonly IItemsRepository _repository;
+    private readonly ILogger<ItemsController> _logger;
 
-    public ItemsController(IItemsRepository repository)
+    public ItemsController(IItemsRepository repository, ILogger<ItemsController> logger)
     {
       _repository = repository;
+      _logger = logger;
     }
 
     [HttpGet]
@@ -24,6 +27,8 @@ namespace NET5_RestAPI.Controllers
     {
       var items = (await _repository.GetItemsAsync())
         .Select(item => item.AsDto());
+
+      _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {items.Count()} items");
       return items;
     }
 
