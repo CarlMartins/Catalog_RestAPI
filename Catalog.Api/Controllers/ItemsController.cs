@@ -83,7 +83,7 @@ namespace Catalog.Api.Controllers
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteItem(Guid id)
+    public async Task<ActionResult> DeleteItemAsync(Guid id)
     {
       var existingItem = await _repository.GetItemAsync(id);
       if (existingItem is null)
