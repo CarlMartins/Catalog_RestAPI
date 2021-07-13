@@ -1,6 +1,6 @@
 using System;
 
-namespace NET5_RestAPI.DTOs
+namespace Catalog.Api.DTOs
 {
   public record ItemDto
   {

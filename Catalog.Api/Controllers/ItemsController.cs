@@ -4,12 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NET5_RestAPI.DTOs;
-using NET5_RestAPI.Entities;
-using NET5_RestAPI.Extensions;
-using NET5_RestAPI.Repositories;
+using Catalog.Api.DTOs;
+using Catalog.Api.Entities;
+using Catalog.Api.Extensions;
+using Catalog.Api.Repositories;
 
-namespace NET5_RestAPI.Controllers
+namespace Catalog.Api.Controllers
 {
   public class ItemsController : BaseApiController
   {

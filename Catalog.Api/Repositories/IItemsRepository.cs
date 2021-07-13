@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NET5_RestAPI.Entities;
+using Catalog.Api.Entities;
 
-namespace NET5_RestAPI.Repositories
+namespace Catalog.Api.Repositories
 {
   public interface IItemsRepository
   {

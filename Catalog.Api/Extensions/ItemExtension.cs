@@ -1,7 +1,7 @@
-using NET5_RestAPI.DTOs;
-using NET5_RestAPI.Entities;
+using Catalog.Api.DTOs;
+using Catalog.Api.Entities;
 
-namespace NET5_RestAPI.Extensions
+namespace Catalog.Api.Extensions
 {
   public static class Extension
   {

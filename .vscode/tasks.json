@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/NET5_RestAPI.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -23,7 +23,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/NET5_RestAPI.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -36,7 +36,7 @@
       "args": [
         "watch",
         "run",
-        "${workspaceFolder}/NET5_RestAPI.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -51,12 +51,12 @@
       "dockerBuild": {
         "tag": "net5restapi:dev",
         "target": "base",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "dockerfile": "${workspaceFolder}/Catalog.Api/Dockerfile",
         "context": "${workspaceFolder}",
         "pull": true
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/NET5_RestAPI.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     },
     {
@@ -67,12 +67,12 @@
       ],
       "dockerBuild": {
         "tag": "net5restapi:latest",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "dockerfile": "${workspaceFolder}/Catalog.Api/Dockerfile",
         "context": "${workspaceFolder}",
         "pull": true
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/NET5_RestAPI.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     },
     {
@@ -83,7 +83,7 @@
       ],
       "dockerRun": {},
       "netCore": {
-        "appProject": "${workspaceFolder}/NET5_RestAPI.csproj",
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "enableDebugging": true,
         "configureSsl": false
       }
@@ -96,7 +96,7 @@
       ],
       "dockerRun": {},
       "netCore": {
-        "appProject": "${workspaceFolder}/NET5_RestAPI.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     }
   ]

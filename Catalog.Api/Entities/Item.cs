@@ -1,6 +1,6 @@
 using System;
 
-namespace NET5_RestAPI.Entities
+namespace Catalog.Api.Entities
 {
   public record Item
   {

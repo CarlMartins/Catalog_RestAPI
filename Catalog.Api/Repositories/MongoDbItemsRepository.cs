@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using NET5_RestAPI.Entities;
+using Catalog.Api.Entities;
 
-namespace NET5_RestAPI.Repositories
+namespace Catalog.Api.Repositories
 {
   public class MongoDbItemsRepository : IItemsRepository
   {

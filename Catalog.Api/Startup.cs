@@ -19,10 +19,10 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using NET5_RestAPI.Repositories;
-using NET5_RestAPI.Settings;
+using Catalog.Api.Repositories;
+using Catalog.Api.Settings;
 
-namespace NET5_RestAPI
+namespace Catalog.Api
 {
   public class Startup
   {

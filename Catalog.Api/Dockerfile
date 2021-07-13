@@ -6,12 +6,12 @@ ENV ASPNETCORE_URLS=http://+:80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
-COPY ["NET5_RestAPI.csproj", "./"]
-RUN dotnet restore "NET5_RestAPI.csproj"
+COPY ["Catalog.Api.csproj", "./"]
+RUN dotnet restore "Catalog.Api.csproj"
 COPY . .
-RUN dotnet publish "NET5_RestAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "Catalog.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "NET5_RestAPI.dll"]
+ENTRYPOINT ["dotnet", "Catalog.Api.dll"]
