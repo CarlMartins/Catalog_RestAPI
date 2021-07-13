@@ -33,9 +33,15 @@ namespace Catalog.Api.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<ItemDto> GetItemAsync(Guid id)
+    public async Task<ActionResult<ItemDto>> GetItemAsync(Guid id)
     {
       var item = await _repository.GetItemAsync(id);
+
+      if (item is null)
+      {
+        return NotFound();
+      }
+
       return item.AsDto();
     }
 
